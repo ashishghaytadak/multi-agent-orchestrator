@@ -1,0 +1,123 @@
+<template>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header slds-p-around_medium slds-m-bottom_medium">
+            <h1 class="slds-text-heading_large">Multi-Agent Customer 360 Orchestrator</h1>
+            <p class="slds-text-body_regular slds-text-color_weak">Real-time agent activity and account health monitoring</p>
+        </div>
+
+        <!-- Stats Cards Row -->
+        <div class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-m-bottom_medium">
+            <div class="slds-col slds-size_1-of-4 slds-p-bottom_small">
+                <div class="stat-card stat-blue">
+                    <p class="stat-number">{totalCases}</p>
+                    <p class="stat-label">Total Cases</p>
+                    <p class="stat-detail">{openCases} open</p>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-p-bottom_small">
+                <div class="stat-card stat-green">
+                    <p class="stat-number">{aiCases}</p>
+                    <p class="stat-label">AI Agent Cases</p>
+                    <p class="stat-detail">Created by agent</p>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-p-bottom_small">
+                <div class="stat-card stat-purple">
+                    <p class="stat-number">{totalLeads}</p>
+                    <p class="stat-label">Total Leads</p>
+                    <p class="stat-detail">{totalOpps} opportunities</p>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-p-bottom_small">
+                <div class="stat-card stat-red">
+                    <p class="stat-number">{atRiskAccounts}</p>
+                    <p class="stat-label">At-Risk Accounts</p>
+                    <p class="stat-detail">{totalScored} scored</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Health Scores -->
+        <div class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium">
+            <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                <div class="card-container">
+                    <h2 class="card-title">Account Health Scores</h2>
+                    <template if:true={healthScores.length}>
+                        <template for:each={healthScores} for:item="score">
+                            <div key={score.id} class="health-row">
+                                <div class="health-info">
+                                    <p class="health-account">{score.accountName}</p>
+                                    <p class="health-action">{score.nextBestAction}</p>
+                                </div>
+                                <div class="health-score-container">
+                                    <span class={score.badgeClass}>{score.riskLevel}</span>
+                                    <p class="health-score-number">{score.healthScore}/100</p>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={healthScores.length}>
+                        <p class="slds-text-body_regular slds-p-around_medium">No health scores available. Run the Account Health Agent to generate scores.</p>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Opportunity Pipeline -->
+            <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                <div class="card-container">
+                    <h2 class="card-title">Opportunity Pipeline</h2>
+                    <template if:true={pipeline.length}>
+                        <template for:each={pipeline} for:item="stage">
+                            <div key={stage.stage} class="pipeline-row">
+                                <div class="pipeline-info">
+                                    <p class="pipeline-stage">{stage.stage}</p>
+                                    <p class="pipeline-count">{stage.count} deals</p>
+                                </div>
+                                <p class="pipeline-amount">{stage.formattedAmount}</p>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={pipeline.length}>
+                        <p class="slds-text-body_regular slds-p-around_medium">No opportunities found.</p>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Cases Table -->
+        <div class="slds-p-horizontal_medium slds-m-bottom_medium">
+            <div class="card-container">
+                <h2 class="card-title">Recent Cases</h2>
+                <template if:true={recentCases.length}>
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                        <thead>
+                            <tr>
+                                <th scope="col">Case #</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Account</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Priority</th>
+                                <th scope="col">Origin</th>
+                                <th scope="col">Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={recentCases} for:item="c">
+                                <tr key={c.id}>
+                                    <td>{c.caseNumber}</td>
+                                    <td>{c.subject}</td>
+                                    <td>{c.accountName}</td>
+                                    <td><span class={c.statusClass}>{c.status}</span></td>
+                                    <td><span class={c.priorityClass}>{c.priority}</span></td>
+                                    <td>{c.origin}</td>
+                                    <td>{c.formattedDate}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

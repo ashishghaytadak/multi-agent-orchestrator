@@ -1,0 +1,179 @@
+.dashboard-container {
+    background: #f4f6f9;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+.header {
+    background: linear-gradient(135deg, #1a237e 0%, #5c6bc0 100%);
+    color: white;
+    border-radius: 0 0 12px 12px;
+}
+
+.header h1 {
+    color: white;
+    font-weight: 700;
+}
+
+.header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid;
+    min-height: 100px;
+}
+
+.stat-blue { border-left-color: #2196F3; }
+.stat-green { border-left-color: #4CAF50; }
+.stat-purple { border-left-color: #7C4DFF; }
+.stat-red { border-left-color: #F44336; }
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.stat-blue .stat-number { color: #2196F3; }
+.stat-green .stat-number { color: #4CAF50; }
+.stat-purple .stat-number { color: #7C4DFF; }
+.stat-red .stat-number { color: #F44336; }
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444;
+    margin: 0.25rem 0 0 0;
+}
+
+.stat-detail {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
+}
+
+.card-container {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: 100%;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e8eaf6;
+}
+
+/* Health Score Rows */
+.health-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.health-row:last-child {
+    border-bottom: none;
+}
+
+.health-info {
+    flex: 1;
+}
+
+.health-account {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.health-action {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0.25rem 0 0 0;
+}
+
+.health-score-container {
+    text-align: right;
+}
+
+.health-score-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0.25rem 0 0 0;
+}
+
+/* Pipeline Rows */
+.pipeline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pipeline-row:last-child {
+    border-bottom: none;
+}
+
+.pipeline-stage {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.pipeline-count {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
+}
+
+.pipeline-amount {
+    font-weight: 700;
+    color: #4CAF50;
+    margin: 0;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-green { background: #e8f5e9; color: #2e7d32; }
+.badge-yellow { background: #fff8e1; color: #f57f17; }
+.badge-orange { background: #fff3e0; color: #e65100; }
+.badge-red { background: #ffebee; color: #c62828; }
+.badge-blue { background: #e3f2fd; color: #1565c0; }
+
+/* Table */
+table {
+    width: 100%;
+}
+
+th {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+td {
+    font-size: 0.85rem;
+}

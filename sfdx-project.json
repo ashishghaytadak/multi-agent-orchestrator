@@ -1,0 +1,14 @@
+{
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "60.0",
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "multi-agent-orchestrator",
+  "namespace": "",
+  "description": "Multi-Agent Orchestrator Salesforce Project",
+  "scripts": {}
+}
